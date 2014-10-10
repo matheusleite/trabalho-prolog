@@ -5,8 +5,8 @@ homem temUm casa.
 homem temUm animal.
 homem temUm cigarro.
 homem temUm bebida.
-homem tem vizinhoEsq.
-homem tem vizinhoDir.
+homem temUm vizinhoEsq.
+homem temUm vizinhoDir.
 
 alemao ehUmTipoDe homem.
 noruegues ehUmTipoDe homem.
@@ -35,7 +35,7 @@ dinamarques tem animal = cavalos.
 alemao tem cigarro = prince.
 noruegues tem cigarro = dunhill.
 sueco tem cigarro = bluemaster.
-ingles tem cigarro = pall mall.
+ingles tem cigarro = pallmall.
 dinamarques tem cigarro = blends.
 
 alemao tem bebida = cafe.
@@ -44,15 +44,24 @@ sueco tem bebida = cerveja.
 ingles tem bebida = leite.
 dinamarques tem bebida = cha.
 
-alemao tem vizinhoEsq = ingles.
-noruegues tem vizinhoEsq = nil.
-sueco tem vizinhoEsq = alemao.
-ingles tem vizinhoEsq = dinamarques.
-dinamarques tem vizinhoEsq = noruegues.
+alemao temUm vizinhoEsq = ingles.
+noruegues temUm vizinhoEsq = nil.
+sueco temUm vizinhoEsq = alemao.
+ingles temUm vizinhoEsq = dinamarques.
+dinamarques temUm vizinhoEsq = noruegues.
 
-alemao tem vizinhoDir = sueco.
-noruegues tem vizinhoDir = dinamarques.
-sueco tem vizinhoDir = nil.
-ingles tem vizinhoDir = alemao.
-dinamarques tem vizinhoDir = ingles.
+alemao temUm vizinhoDir = sueco.
+noruegues temUm vizinhoDir = dinamarques.
+sueco temUm vizinhoDir = nil.
+ingles temUm vizinhoDir = alemao.
+dinamarques temUm vizinhoDir = ingles.
+
+regras:-write('############# - REGRAS - #############'),nl,
+		write('1- Existem 5 casas de diferentes cores'),nl,
+	    write('2- Em cada casa mora uma pessoa de uma diferente nacionalidade'),nl,
+		write('3- Esses 5 proprietarios bebem diferentes bebidas, fumam diferentes tipos de cigarros e tem um certo animal de estimacao'),nl,
+		write('4- Nenhum deles tem o mesmo animal, fumam o mesmo cigarro ou bebem a mesma bebida.'),nl.
+
+
+
 
