@@ -1,30 +1,23 @@
-:-op(900,xfx,[ehUmTipoDe, tem, temUm]).
+:-op(900,xfx,[ehUmTipoDe, tem, temUm, ehUm]).
 
-homem temUm nacionalidade.
-homem temUm casa.
-homem temUm animal.
-homem temUm cigarro.
-homem temUm bebida.
-homem temUm vizinhoEsq.
-homem temUm vizinhoDir.
+nacionalidade temUm animal.
+nacionalidade temUm cigarro.
+nacionalidade temUm bebida.
+nacionalidade temUm corCasa.
+nacionalidade temUm vizinhoEsq.
+nacionalidade temUm vizinhoDir.
 
-alemao ehUmTipoDe homem.
-noruegues ehUmTipoDe homem.
-sueco ehUmTipoDe homem.
-ingles ehUmTipoDe homem.
-dinamarques ehUmTipoDe homem.
+alemao ehUmTipoDe nacionalidade.
+noruegues ehUmTipoDe nacionalidade.
+sueco ehUmTipoDe nacionalidade.
+ingles ehUmTipoDe nacionalidade.
+dinamarques ehUmTipoDe nacionalidade.
 
-alemao tem nacionalidade = alema.
-noruegues tem nacionalidade = noruega.
-sueco tem nacionalidade = sueca.
-ingles tem nacionalidade = inglesa.
-dinamarques tem nacionalidade = dinamarquesa.
-
-alemao tem casa = verde.
-noruegues tem casa = amarela.
-sueco tem casa = branca.
-ingles tem casa = vermelha.
-dinamarques tem casa = azul.
+alemao tem corCasa = verde.
+noruegues tem corCasa = amarela.
+sueco tem corCasa = branca.
+ingles tem corCasa = vermelha.
+dinamarques tem corCasa = azul.
 
 alemao tem animal = peixes.
 noruegues tem animal = gatos.
@@ -56,13 +49,13 @@ sueco tem vizinhoDir = nil.
 ingles tem vizinhoDir = alemao.
 dinamarques tem vizinhoDir = ingles.
 
-regras:-write('############# - REGRAS - #############'),nl,
-		write('1- Existem 5 casas de diferentes cores'),nl,
-	    write('2- Em cada casa mora uma pessoa de uma diferente nacionalidade'),nl,
-		write('3- Esses 5 proprietarios bebem diferentes bebidas, fumam diferentes tipos de cigarros e tem um certo animal de estimacao'),nl,
+regras:-write('--------- REGRAS ----------'),nl,
+		write('1- Existem 5 casas de diferentes cores.'),nl,
+	    	write('2- Em cada casa mora uma pessoa de uma diferente nacionalidade.'),nl,
+		write('3- Esses 5 proprietarios bebem diferentes bebidas, fumam diferentes tipos de cigarros e tem um certo animal de estimacao.'),nl,
 		write('4- Nenhum deles tem o mesmo animal, fumam o mesmo cigarro ou bebem a mesma bebida.'),nl.
 
-dicas:-write('############# - DICAS - #############'),nl,
+dicas:-write('---------- DICAS ----------'),nl,
 	   write(' A - O Noruegues vive na primeira casa.'),nl,
 	   write(' B - O Ingles vive na casa Vermelha.'),nl,
 	   write(' C - O Sueco tem Cachorros como animais de estimacao.'),nl,
