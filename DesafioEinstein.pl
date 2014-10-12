@@ -38,16 +38,19 @@ ingles tem bebida = leite.
 dinamarques tem bebida = cha.
 
 alemao tem vizinhoEsq = ingles.
-noruegues tem vizinhoEsq = nil.
+noruegues tem vizinhoEsq = nenhum.
 sueco tem vizinhoEsq = alemao.
 ingles tem vizinhoEsq = dinamarques.
 dinamarques tem vizinhoEsq = noruegues.
 
 alemao tem vizinhoDir = sueco.
 noruegues tem vizinhoDir = dinamarques.
-sueco tem vizinhoDir = nil.
+sueco tem vizinhoDir = nenhum.
 ingles tem vizinhoDir = alemao.
 dinamarques tem vizinhoDir = ingles.
+
+X ehUm nacionalidade:-Z ehUmTipoDe nacionalidade,X ehUm Z.
+X tem Atributo=Valor:-X ehUm nacionalidade,nacionalidade tem Atributo=Valor.
 
 regras:-write('--------- REGRAS ----------'),nl,
 		write('1- Existem 5 casas de diferentes cores.'),nl,
