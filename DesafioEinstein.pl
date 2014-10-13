@@ -1,3 +1,7 @@
+mostrarResultados:- acertou(Casa,X),write(' A casa '),write(Casa),
+write(' tem '),write(X), nl, fail.
+mostrarResultados.
+
 :-op(900,xfx,[ehUmTipoDe, tem, temUm, ehUm]).
 
 casa temUm animal.
@@ -117,34 +121,34 @@ option(1):-  repeat,
 
 	palpite(0,0):- !.
 
-	palpite('1','noruegues'):- assert(acertou(1,noruegues)),!.
-	palpite('1','amarela'):- assert(acertou(1,amarela)),!.
-	palpite('1','agua'):- assert(acertou(1,agua)).
-	palpite('1','dunhill'):- assert(acertou(1,dunhill)),!.
-	palpite('1','gatos'):- assert(acertou(1,gatos)),!.
-	palpite('2','azul'):- assert(acertou(1,azul)),!.
-	palpite('2','dinamarques'):- assert(acertou(2,dinamarques)),!.
-	palpite('2','cha'):- assert(acertou(2,cha)),!.
-	palpite('2','blends'):- assert(acertou(2,blends)),!.
-	palpite('2','cavalos'):- assert(acertou(2,cavalos)),!.
-	palpite('3','vermelho'):- assert(acertou(3,vermelho)),!.
-	palpite('3','ingles'):- assert(acertou(3,ingles)),!.
-	palpite('3','leite'):- assert(acertou(3,leite)),!.
-	palpite('3','pallmall'):- assert(acertou(3,pallmall)),!.
-	palpite('3','passaros'):- assert(acertou(3,passaros)),!.
-	palpite('4','verde'):- assert(acertou(4,verde)),!.
-	palpite('4','alemao'):- assert(acertou(4,alemao)),!.
-	palpite('4','cafe'):- assert(acertou(4,cafe)),!.
-	palpite('4','prince'):- assert(acertou(4,prince)),!.
-	palpite('4','peixe'):- assert(acertou(4,peixe)),!.
-	palpite('5','branca'):- assert(acertou(5,branca)),!.
-	palpite('5','sueco'):- assert(acertou(5,sueco)),!.
-	palpite('5','cerveja'):- assert(acertou(5,cerveja)).
-	palpite('5','bluemaster'):- assert(acertou(5,bluemaster)),!.
-	palpite('5','cachorros'):- assert(acertou(5,cachorros)),!.	
-	palpite(_,_):- write('Palpite errado!'), nl.
+	palpite('casa1','noruegues'):- assert(acertou(1,noruegues)),!.
+	palpite('casa1','amarela'):- assert(acertou(1,amarela)),!.
+	palpite('casa1','agua'):- assert(acertou(1,agua)).
+	palpite('casa1','dunhill'):- assert(acertou(1,dunhill)),!.
+	palpite('casa1','gatos'):- assert(acertou(1,gatos)),!.
+	palpite('casa2','azul'):- assert(acertou(1,azul)),!.
+	palpite('casa2','dinamarques'):- assert(acertou(2,dinamarques)),!.
+	palpite('casa2','cha'):- assert(acertou(2,cha)),!.
+	palpite('casa2','blends'):- assert(acertou(2,blends)),!.
+	palpite('casa2','cavalos'):- assert(acertou(2,cavalos)),!.
+	palpite('casa3','vermelho'):- assert(acertou(3,vermelho)),!.
+	palpite('casa3','ingles'):- assert(acertou(3,ingles)),!.
+	palpite('casa3','leite'):- assert(acertou(3,leite)),!.
+	palpite('casa3','pallmall'):- assert(acertou(3,pallmall)),!.
+	palpite('casa3','passaros'):- assert(acertou(3,passaros)),!.
+	palpite('casa4','verde'):- assert(acertou(4,verde)),!.
+	palpite('casa4','alemao'):- assert(acertou(4,alemao)),!.
+	palpite('casa4','cafe'):- assert(acertou(4,cafe)),!.
+	palpite('casa4','prince'):- assert(acertou(4,prince)),!.
+	palpite('casa4','peixe'):- assert(acertou(4,peixe)),!.
+	palpite('casa5','branca'):- assert(acertou(5,branca)),!.
+	palpite('casa5','sueco'):- assert(acertou(5,sueco)),!.
+	palpite('casa5','cerveja'):- assert(acertou(5,cerveja)).
+	palpite('casa5','bluemaster'):- assert(acertou(5,bluemaster)),!.
+	palpite('casa5','cachorros'):- assert(acertou(5,cachorros)),!.	
 	palpite(0,_):- write('Palpite incorreto!'), nl.
 	palpite(_,0):- write('Palpite incorreto!'), nl.
+	palpite(_,_):- write('Palpite incorreto!'), nl.
 	
 
 %REGRAS
