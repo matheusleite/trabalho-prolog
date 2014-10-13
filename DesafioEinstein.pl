@@ -1,4 +1,4 @@
-main:-consult('testando.pl'),
+main:-consult('Palpite.pl'),
 	menuPrinc.
 
 :-op(900,xfx,[ehUmTipoDe, tem, temUm, ehUm]).
