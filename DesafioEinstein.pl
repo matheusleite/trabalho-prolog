@@ -1,12 +1,19 @@
 :-op(900,xfx,[ehUmTipoDe, tem, temUm, ehUm]).
 
-nacionalidade temUm animal.
-nacionalidade temUm cigarro.
-nacionalidade temUm bebida.
-nacionalidade temUm corCasa.
-nacionalidade temUm casa.
-nacionalidade temUm vizinhoEsq.
-nacionalidade temUm vizinhoDir.
+casa temUm animal.
+casa temUm nacionalidade.
+casa temUm cigarro.
+casa temUm bebida.
+casa temUm cor.
+casa temUm numero.
+casa temUm vizinhoEsq.
+casa temUm vizinhoDir.
+
+cachorros ehUmTipoDe animal.
+passaros ehUmTipoDe animal.
+cavalos ehUmTipoDe animal.
+gatos ehUmTipoDe animal.
+peixes ehUmTipoDe animal.
 
 alemao ehUmTipoDe nacionalidade.
 noruegues ehUmTipoDe nacionalidade.
@@ -14,44 +21,74 @@ sueco ehUmTipoDe nacionalidade.
 ingles ehUmTipoDe nacionalidade.
 dinamarques ehUmTipoDe nacionalidade.
 
-alemao tem corCasa = verde.
-noruegues tem corCasa = amarela.
-sueco tem corCasa = branca.
-ingles tem corCasa = vermelha.
-dinamarques tem corCasa = azul.
+dunhill ehUmTipoDe cigarro.
+pallmall ehUmTipoDe cigarro.
+blends ehUmTipoDe cigarro.
+prince ehUmTipoDe cigarro.
+bluemaster ehUmTipoDe cigarro.
 
-alemao tem animal = peixes.
-noruegues tem animal = gatos.
-sueco tem animal = cachorros.
-ingles tem animal = passaros.
-dinamarques tem animal = cavalos.
+agua ehUmTipoDe bebida.
+cha ehUmTipoDe bebida.
+cerveja ehUmTipoDe bebida.
+leite ehUmTipoDe bebida.
+cafe ehUmTipoDe bebida.
 
-alemao tem cigarro = prince.
-noruegues tem cigarro = dunhill.
-sueco tem cigarro = bluemaster.
-ingles tem cigarro = pallmall.
-dinamarques tem cigarro = blends.
+verde ehUmTipoDe cor.
+vermelha ehUmTipoDe cor.
+azul ehUmTipoDe cor.
+branca ehUmTipoDe cor.
+amarela ehUmTipoDe cor.
 
-alemao tem bebida = cafe.
-noruegues tem bebida = agua.
-sueco tem bebida = cerveja.
-ingles tem bebida = leite.
-dinamarques tem bebida = cha.
+1 ehUmTipoDe numero.
+2 ehUmTipoDe numero.
+3 ehUmTipoDe numero.
+4 ehUmTipoDe numero.
+5 ehUmTipoDe numero.
 
-alemao tem vizinhoEsq = ingles.
-noruegues tem vizinhoEsq = nenhum.
-sueco tem vizinhoEsq = alemao.
-ingles tem vizinhoEsq = dinamarques.
-dinamarques tem vizinhoEsq = noruegues.
+1 tem cor = amarela.
+2 tem cor = azul.
+3 tem cor = vermelha.
+4 tem cor = verde.
+5 tem cor = branca.
 
-alemao tem vizinhoDir = sueco.
-noruegues tem vizinhoDir = dinamarques.
-sueco tem vizinhoDir = nenhum.
-ingles tem vizinhoDir = alemao.
-dinamarques tem vizinhoDir = ingles.
+1 tem animal = gatos.
+2 tem animal = cavalos.
+3 tem animal = passaros.
+4 tem animal = peixes.
+5 tem animal = cachorros.
+
+1 tem cigarro = dunhill.
+2 tem cigarro = blends.
+3 tem cigarro = pallmall.
+4 tem cigarro = prince.
+5 tem cigarro = bluemaster.
+
+1 tem nacionalidade = noruegues.
+2 tem nacionalidade = dinamarques.
+3 tem nacionalidade = ingles.
+4 tem nacionalidade = alemao.
+5 tem nacionalidade = sueco.
+
+1 tem bebida = agua.
+2 tem bebida = cha.
+3 tem bebida = leite.
+4 tem bebida = cafe.
+5 tem bebida = cerveja.
+
+1 tem vizinhoEsq = nenhum.
+2 tem vizinhoEsq = noruegues.
+3 tem vizinhoEsq = dinamarques.
+4 tem vizinhoEsq = ingles.
+5 tem vizinhoEsq = alemao.
+
+1 tem vizinhoDir = dinamarques.
+2 tem vizinhoDir = ingles.
+3 tem vizinhoDir = alemao.
+4 tem vizinhoDir = sueco.
+5 tem vizinhoDir = nenhum.
 
 X ehUm W:-Z ehUmTipoDe W,X ehUm Z.
-X tem Atributo=Valor:-X ehUm A,A tem Atributo=Valor.
+X tem Atributo=Valor:-X ehUm Y,Y tem Atributo=Valor.
 
 menuPrinc:-repeat,
 	write('--------- MENU ---------'),nl,
@@ -59,10 +96,56 @@ menuPrinc:-repeat,
 	write('2. Consultar Dicas'), nl,
 	write('3. Ler as Regras'), nl,
 	write('Digite a opcao: '),nl,
-	read(X),
-	option(X),
-	X==0,
+	read(O),
+	option(O),
+	O==0,
 	!.
+
+%PALPITES
+option(1):-  repeat,
+	write('--------- PALTPITE ---------'), nl,
+	write('Digite o seu palpite.. Digite 0 para sair.'), nl,
+	write('Digite a casa:'),nl,
+	read(C),
+	write('Digite o Atributo:'),nl,
+	read(A),
+	nl,
+	palpite(C,A),nl,
+	mostrarResultados,nl,nl,
+	C==0,
+	!.
+
+	palpite(0,0):- !.
+
+	palpite('1','noruegues'):- assert(acertou(1,noruegues)),!.
+	palpite('1','amarela'):- assert(acertou(1,amarela)),!.
+	palpite('1','agua'):- assert(acertou(1,agua)).
+	palpite('1','dunhill'):- assert(acertou(1,dunhill)),!.
+	palpite('1','gatos'):- assert(acertou(1,gatos)),!.
+	palpite('2','azul'):- assert(acertou(1,azul)),!.
+	palpite('2','dinamarques'):- assert(acertou(2,dinamarques)),!.
+	palpite('2','cha'):- assert(acertou(2,cha)),!.
+	palpite('2','blends'):- assert(acertou(2,blends)),!.
+	palpite('2','cavalos'):- assert(acertou(2,cavalos)),!.
+	palpite('3','vermelho'):- assert(acertou(3,vermelho)),!.
+	palpite('3','ingles'):- assert(acertou(3,ingles)),!.
+	palpite('3','leite'):- assert(acertou(3,leite)),!.
+	palpite('3','pallmall'):- assert(acertou(3,pallmall)),!.
+	palpite('3','passaros'):- assert(acertou(3,passaros)),!.
+	palpite('4','verde'):- assert(acertou(4,verde)),!.
+	palpite('4','alemao'):- assert(acertou(4,alemao)),!.
+	palpite('4','cafe'):- assert(acertou(4,cafe)),!.
+	palpite('4','prince'):- assert(acertou(4,prince)),!.
+	palpite('4','peixe'):- assert(acertou(4,peixe)),!.
+	palpite('5','branca'):- assert(acertou(5,branca)),!.
+	palpite('5','sueco'):- assert(acertou(5,sueco)),!.
+	palpite('5','cerveja'):- assert(acertou(5,cerveja)).
+	palpite('5','bluemaster'):- assert(acertou(5,bluemaster)),!.
+	palpite('5','cachorros'):- assert(acertou(5,cachorros)),!.	
+	palpite(_,_):- write('Palpite errado!'), nl.
+	palpite(0,_):- write('Palpite incorreto!'), nl.
+	palpite(_,0):- write('Palpite incorreto!'), nl.
+	
 
 %REGRAS
 option(3):-nl,write('--------- REGRAS ----------'),nl,
@@ -88,52 +171,3 @@ option(2):-nl,write('---------- DICAS ----------'),nl,
 	   write(' M - O Alemao fuma Prince.'),nl,
 	   write(' N - O Noruegues vive ao lado da casa Azul.'),nl,
  	   write(' O - O homem que fuma Blends eh vizinho do que bebe Agua.'),nl,nl.
-
-%PALPITES
-option(1):-  repeat,
-	write('--------- PALTPITE ---------'), nl,
-	write('Digite o seu palpite.. Digite 0 para sair.'), nl,
-	write('Digite a casa:'),nl,
-	read(X),
-	write('Digite o Atributo:'),nl,
-	read(Y),
-	nl,
-	palpite(X,Y),nl,
-	mostrarResultados,nl,nl,
-	X==0,
-	!.
-
-	mostrarResultados:- acertou(Casa,X),write(Casa),
-	write(' tem '),write(X), nl, fail.
-	mostrarResultados.
-
-
-	palpite(0,0):- !.
-
-	palpite('casa1','noruegues'):- assert(acertou(casa1,noruegues)),!.
-	palpite('casa1','amarela'):- assert(acertou(casa1,amarela)),!.
-	palpite('casa1','agua'):- assert(acertou(casa1,agua)).
-	palpite('casa1','dunhill'):- assert(acertou(casa1,dunhill)),!.
-	palpite('casa1','gatos'):- assert(acertou(casa1,gatos)),!.
-	palpite('casa2','azul'):- assert(acertou(casa2,azul)),!.
-	palpite('casa2','dinamarques'):- assert(acertou(casa2,dinamarques)),!.
-	palpite('casa2','cha'):- assert(acertou(casa2,cha)),!.
-	palpite('casa2','blends'):- assert(acertou(casa2,blends)),!.
-	palpite('casa2','cavalos'):- assert(acertou(casa2,cavalos)),!.
-	palpite('casa3','vermelho'):- assert(acertou(casa3,vermelho)),!.
-	palpite('casa3','ingles'):- assert(acertou(casa3,ingles)),!.
-	palpite('casa3','leite'):- assert(acertou(casa3,leite)),!.
-	palpite('casa3','pallmall'):- assert(acertou(casa3,pallmall)),!.
-	palpite('casa3','passaros'):- assert(acertou(casa3,passaros)),!.
-	palpite('casa4','verde'):- assert(acertou(casa4,verde)),!.
-	palpite('casa4','alemao'):- assert(acertou(casa4,alemao)),!.
-	palpite('casa4','cafe'):- assert(acertou(casa4,cafe)),!.
-	palpite('casa4','prince'):- assert(acertou(casa4,prince)),!.
-	palpite('casa4','peixe'):- assert(acertou(casa4,peixe)),!.
-	palpite('casa5','branca'):- assert(acertou(casa5,branca)),!.
-	palpite('casa5','sueco'):- assert(acertou(casa5,sueco)),!.
-	palpite('casa5','cerveja'):- assert(acertou(casa5,cerveja)).
-	palpite('casa5','bluemaster'):- assert(acertou(casa5,bluemaster)),!.
-	palpite('casa5','cachorros'):- assert(acertou(casa5,cachorros)),!.	
-	palpite(_,_):- write('Palpite errado!'), nl.
-	
